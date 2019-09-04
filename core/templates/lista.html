@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    {% load staticfiles %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+    <h3>Meus Contatos</h3>
+    <a href="{% url 'criar_contato' %}" class="btn btn-primary btn-xs pull-right"><b>+</b> Adicionar Contato</a>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Endereço</th>
+            <th>Grupo</th>
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+        {% for contato in contatos %}
+            <tr>
+                <td>{{ contato.id }}</td>
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.telefone1 }}</td>
+                <td>{{ contato.email1 }}</td>
+                <td>{{ contato.endereco }}</td>
+                <td>{{ contato.grupo }}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="{% url 'alterar_contato' contato.id%}"><span class="glyphicon glyphicon-edit"></span> Alterar</a> <a href="{% url 'deletar_contato' contato.id %}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Deletar</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    </div>
+</div>
+</body>
+</html>

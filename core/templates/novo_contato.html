@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="post">
+ {% csrf_token %}
+
+    <label for="{{ form.foto.id_for_label }}">
+    Foto
+    </label>
+    {{ form.foto }}<br>
+
+    <label for="{{ form.nome.id_for_label }}">
+    Nome
+    </label>
+    {{ form.nome }}<br>
+
+    <label for="{{ form.telefone1.id_for_label }}">
+    Telefone
+    </label>
+    {{ form.telefone1 }}<br>
+
+    <label for="{{ form.email1.id_for_label }}">
+    E-mail
+    </label>
+    {{ form.email1 }}<br>
+
+    <label for="{{ form.endereco.id_for_label }}">
+    Endereço
+    </label>
+    {{ form.endereco }}<br>
+
+     <label for="{{ form.grupo.id_for_label }}">
+    Grupo
+    </label>
+    {{ form.grupo }}<br>
+
+<button type="submit">Cadastrar</button>
+
+</form>
+</body>
+</html>
