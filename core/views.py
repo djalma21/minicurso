@@ -3,11 +3,17 @@ from .models import Contato
 from .forms import ContatoForm
 
 def listar_contatos(request):
-    contatos = Contato.objects.all()
-    contexto = {
-        'contatos': contatos
-    }
-    return render(request, "lista.html", contexto)
+    busca = request.GET.get('pesquisa', None)
+
+    if busca:
+        contatos = Contato.objects.all()
+        contatos = contatos.filter(nome__icontains=busca)
+
+    else:
+        contatos = Contato.objects.all()
+
+
+    return render(request, 'lista.html',{'contatos': contatos})
 
 def criar_contato(request):
     form = ContatoForm(request.POST or None, request.FILES or None)

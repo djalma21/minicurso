@@ -6,31 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+{% load staticfiles %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
 
-<h1>Você tem certeza que deseja excluir o contato {{ contato.nome }} ? </h1>
+<h3>Você tem certeza que deseja excluir o contato {{ contato.nome }} ? </h3>
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Delete</button>
     </form>
-<button type="submit" href="{% url 'listar_contatos' %}"></a>Cancelar</button>
-<!--<h4>Você tem certeza que quer excluir
-    o contato <b>{{ contato.nome }}</b>?</h4>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-<br><br>
+<a href="{% url 'listar_contatos' %}" class="btn btn-primary btn-xs pull-right">Cancelar</a>
 
-    <button type="button">
-    <a href="{% url 'listar_contatos' %}">
-    Cancelar
-    </a>
-    </button>
-    <button type="submit">Excluir</button>
-    </form>
---!
 </body>
 </html>

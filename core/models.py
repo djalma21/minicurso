@@ -8,7 +8,6 @@ class Grupos(models.Model):
         return f' {self.nome}'
 
 class Contato(models.Model):
-    foto = models.ImageField( upload_to='fotos_contatos',null=True, blank=True)
     nome = models.CharField(max_length=100)
     telefone1 = models.CharField(max_length=11, unique=True, null=True)
     email1 = models.EmailField(max_length=60, unique=True, null=True)

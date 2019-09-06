@@ -5,43 +5,61 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Novo Contato</title>
+    {% load widget_tweaks %}
+
 </head>
 <body>
-<form method="post">
- {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"><strong>Cadastro de contatos</strong></h3>
+                        <p class="card-text">Complete o formulário abaixo para cadastrar um novo <code>Contato</code></p>
+                        <form method="post">
 
-    <label for="{{ form.foto.id_for_label }}">
-    Foto
-    </label>
-    {{ form.foto }}<br>
+                              {% csrf_token %}
 
-    <label for="{{ form.nome.id_for_label }}">
-    Nome
-    </label>
-    {{ form.nome }}<br>
+       <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text">Nome</span>
+           </div>
+           {% render_field form.nome class+="form-control" %}
+       </div>
+                            <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text">Telefone</span>
+           </div>
+           {% render_field form.telefone1 class+="form-control" %}
+       </div>
+                            <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text">E-mail</span>
+           </div>
+           {% render_field form.email1 class+="form-control" %}
+       </div>
 
-    <label for="{{ form.telefone1.id_for_label }}">
-    Telefone
-    </label>
-    {{ form.telefone1 }}<br>
-
-    <label for="{{ form.email1.id_for_label }}">
-    E-mail
-    </label>
-    {{ form.email1 }}<br>
-
-    <label for="{{ form.endereco.id_for_label }}">
-    Endereço
-    </label>
-    {{ form.endereco }}<br>
-
-     <label for="{{ form.grupo.id_for_label }}">
-    Grupo
-    </label>
-    {{ form.grupo }}<br>
-
-<button type="submit">Cadastrar</button>
+                            <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text">Endereço</span>
+           </div>
+           {% render_field form.endereco class+="form-control" %}
+       </div>
+                                             <div class="input-group mb-3">
+           <div class="input-group-prepend">
+               <span class="input-group-text">Grupo</span>
+           </div>
+           {% render_field form.grupo class+="form-control" %}
+       </div>
+                              <button class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </form>
 </body>
